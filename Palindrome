@@ -1,0 +1,17 @@
+public class PalindromeCheck {
+static String cleanString(String s) {
+return s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+}
+// อัลกอริทึมที่ 1
+static boolean isPalindromeByReverse(String s) {
+String cleaned = cleanString(s);
+String reversed = StringReversal.reverseIterative(cleaned);
+return cleaned.equals(reversed);
+}
+// อัลกอริทึมที่ 2
+static boolean isPalindromeRecursive(String s, int left, int right) {
+if (left >= right) return true;
+if (s.charAt(left) != s.charAt(right)) return false;
+return isPalindromeRecursive(s, left + 1, right - 1);
+}
+}
